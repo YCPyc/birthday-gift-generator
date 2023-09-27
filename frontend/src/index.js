@@ -4,12 +4,25 @@ import './index.css';
 import Home from './templates/Home';
 import Header from './components/Header';
 import reportWebVitals from './helpers/reportWebVitals';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import ErrorPage from './components/ErrorPage';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <ErrorPage />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Header />
-    <Home />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
