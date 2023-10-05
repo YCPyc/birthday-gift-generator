@@ -25,20 +25,16 @@ function Home() {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      setCurrentQuestion('submit');
+      if (answers.join('') !== '' || answer !== '') {
+        setCurrentQuestion('submit');
+      } else {
+        alert('No questions were answered')
+      }
     }
   };
 
   const getGift = () => {
     return answers.join(' ');
-  };
-
-  const handleSkipQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      setCurrentQuestion('submit');
-    }
   };
 
   const handlePreviousQuestion = () => {
@@ -54,17 +50,17 @@ function Home() {
 
   return (
     <div className="Home">
-      <div className="h-full pt-24 max-w-5xl mx-auto text-center">
-        <h1 className="text-brand-primary text-6xl">
+      <div className="h-full pt-24 px-16 max-w-5xl mx-auto text-center">
+        <h1 className="text-brand-primary text-4xl sm:text-6xl">
           Find the perfect gift for any friend or family through the power of AI
         </h1>
-        <p className="mt-6 text-lg text-brand-secondary max-w-2xl mx-auto">
+        <p className="mt-6 text-lg sm:text-xl text-brand-secondary max-w-2xl mx-auto">
           Input some info about the recipient of the gift. Such as hobbies, interests, age, and gender. Add any additional prompt to customize the gift as much as possible
         </p>
       </div>
       <div>
         {currentQuestion === 'submit' ? (
-        <div className="text-center">
+        <div className="text-center pt-4">
           <h2 className="text-4xl mb-4">Submit Answers</h2>
           <p className="text-xl mb-8">Sum of answers: {getGift()}</p>
           <button
@@ -75,15 +71,14 @@ function Home() {
           </button>
         </div>
         ) : (
-          <div>
+          <div className='flex justify-center container mx-auto'>
             <QuestionSlide
               question={questions[currentQuestion].question}
+              currentQuestion={currentQuestion + 1}
+              totalQuestions={questions.length}
               onSave={handleSaveAnswer}
+              onPrevious={handlePreviousQuestion}
             />
-            <div className='flex'>
-              <button className='Button-primary' onClick={handlePreviousQuestion}>Previous</button>
-              <button className='Button-primary' onClick={handleSkipQuestion}>Skip</button>
-            </div>
           </div>
         )}
       </div>
