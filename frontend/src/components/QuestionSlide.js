@@ -44,7 +44,7 @@ const QuestionSlide = ({ question, currentQuestion, totalQuestions, onSave, onPr
       <h2 className="text-2xl mb-4">{question}</h2>
       <div className="flex">
         <input
-          className="w-full py-2 px-4 bg-gradient-to-r from-brand-primary to-brand-skyblue rounded-lg border-2 border-brand-primary focus:outline-none focus:border-blue-500 shadow-lg text-white placeholder-white placeholder-opacity-50"
+          className="w-full py-2 px-4 bg-brand-primary rounded-lg border-2 border-brand-primary focus:outline-none focus:border-blue-500 shadow-lg text-white placeholder-white placeholder-opacity-50"
           type="text"
           placeholder="Type your answer here"
           value={textInput}
