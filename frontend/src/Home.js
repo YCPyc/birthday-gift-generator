@@ -1,7 +1,7 @@
-import '../css/Home.css';
+import './css/Home.css';
 import React, { useState } from 'react';
-import QuestionSlide from '../components/QuestionSlide';
-import LoadingScreen from '../components/LoadingScreen';
+import QuestionSlide from './components/QuestionSlide';
+import LoadingScreen from './components/LoadingScreen';
 import axios from 'axios';
 
 function Home() {
