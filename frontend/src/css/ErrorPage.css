@@ -1,5 +1,4 @@
-.ErrorPage
-{
+.ErrorPage {
   min-height: 100vh;
 }
 
@@ -12,20 +11,21 @@
 }
 
 @keyframes bounce {
-  0%, 100% {
-      transform: translate(0, 0) rotate(-150deg);
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-150deg);
   }
   15% {
     transform: translate(calc(20vw), calc(10vh)) rotate(45deg);
   }
   25% {
-      transform: translate(calc(30vw), calc(50vh)) rotate(-125deg);
+    transform: translate(calc(30vw), calc(50vh)) rotate(-125deg);
   }
   35% {
     transform: translate(calc(35vw), calc(30vh)) rotate(-180deg);
   }
   50% {
-      transform: translate(calc(50vw), 0) rotate(65deg);
+    transform: translate(calc(50vw), 0) rotate(65deg);
   }
   65% {
     transform: translate(calc(35vw), calc(30vh)) rotate(-180deg);

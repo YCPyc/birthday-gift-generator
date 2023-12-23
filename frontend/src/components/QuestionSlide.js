@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
-import {ArrowLeft, ArrowRight} from '../helpers/Icons';
+import React, { useState } from "react";
+import { ArrowLeft, ArrowRight } from "../helpers/Icons";
 
-const QuestionSlide = ({ question, currentQuestion, totalQuestions, onSave, onPrevious }) => {
-  const [textInput, setTextInput] = useState('');
+const QuestionSlide = ({
+  question,
+  currentQuestion,
+  totalQuestions,
+  onSave,
+  onPrevious,
+}) => {
+  const [textInput, setTextInput] = useState("");
 
   const handleTextInputChange = (event) => {
     setTextInput(event.target.value);
@@ -10,27 +16,26 @@ const QuestionSlide = ({ question, currentQuestion, totalQuestions, onSave, onPr
 
   const handleSave = () => {
     onSave(textInput);
-    setTextInput('');
+    setTextInput("");
   };
 
   const handlePrevious = () => {
     onPrevious(textInput);
-    setTextInput('');
+    setTextInput("");
   };
 
-
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       // If the "Enter" key is pressed, submit the input
       handleSave();
     }
   };
 
-  const progressBarWidth = ((currentQuestion) / (totalQuestions)) * 100 + '%';
+  const progressBarWidth = (currentQuestion / totalQuestions) * 100 + "%";
   // Define CSS styles for the progress bar
   const progressBarStyles = {
     width: progressBarWidth,
-    transition: 'width 2s ease', // Add a smooth transition
+    transition: "width 2s ease", // Add a smooth transition
   };
 
   return (
@@ -52,12 +57,21 @@ const QuestionSlide = ({ question, currentQuestion, totalQuestions, onSave, onPr
           onKeyDown={handleKeyDown}
         />
       </div>
-      <div className='flex mt-4 w-full justify-between'>
-        <button className={currentQuestion !== 1 ? "Button-primary mr-auto" : "hidden"} onClick={handlePrevious}>
+      <div className="flex mt-4 w-full justify-between">
+        <button
+          className={
+            currentQuestion !== 1 ? "Button-primary mr-auto" : "hidden"
+          }
+          onClick={handlePrevious}
+        >
           <ArrowLeft></ArrowLeft>
         </button>
-        <button className='Button-primary ml-auto' onClick={handleSave}>
-          {currentQuestion !== totalQuestions ? <ArrowRight></ArrowRight> : "Submit"}
+        <button className="Button-primary ml-auto" onClick={handleSave}>
+          {currentQuestion !== totalQuestions ? (
+            <ArrowRight></ArrowRight>
+          ) : (
+            "Submit"
+          )}
         </button>
       </div>
     </div>
