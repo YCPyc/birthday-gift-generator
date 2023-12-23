@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-#root
-{
-    background: white;
+#root {
+  background: white;
 }
 
 .Button-primary {
@@ -14,7 +13,9 @@
   padding: 0.75rem 1.5rem; /* Padding */
   border-radius: 9999px; /* Rounded corners */
   outline: none; /* Remove default focus outline */
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); /* Box shadow for depth */
+  box-shadow:
+    0 4px 6px rgba(50, 50, 93, 0.11),
+    0 1px 3px rgba(0, 0, 0, 0.08); /* Box shadow for depth */
   transition: background-color 0.3s ease; /* Transition for smooth hover effect */
 
   /* Hover state */
